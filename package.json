@@ -21,6 +21,7 @@
     "chai": "^4.3.6",
     "ethers": "^5.7.0",
     "hardhat": "^2.11.1",
+    "hardhat-api-builder": "0.0.5",
     "hardhat-gas-reporter": "^1.0.9",
     "solidity-coverage": "^0.7.22",
     "ts-node": "^10.9.1",
