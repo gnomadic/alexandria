@@ -11,13 +11,13 @@ export default class Alexandria {
     this.alexandria = new ethers.Contract(contractAddress, abi, provider);
   }
 
-  async createHypothesis(_uri: string) {
-    return await this.alexandria.createHypothesis(_uri);
+  async createHypothesis(_url: string) {
+    return await this.alexandria.createHypothesis(_url);
   }
   
 
-  async getHypotheses() {
-    return await this.alexandria.getHypotheses();
+  async getHypotheses(offset: BigNumber, limit: BigNumber) {
+    return await this.alexandria.getHypotheses(offset, limit);
   }
   
 
@@ -26,18 +26,38 @@ export default class Alexandria {
   }
   
 
+  async getProofsForHypothesis(hypothesesID: BigNumber) {
+    return await this.alexandria.getProofsForHypothesis(hypothesesID);
+  }
+  
+
+  async getReviewsForProof(hypothesesID: BigNumber, proofIndex: BigNumber) {
+    return await this.alexandria.getReviewsForProof(hypothesesID, proofIndex);
+  }
+  
+
   async hypotheses(: BigNumber) {
     return await this.alexandria.hypotheses();
   }
   
 
-  async reviews(: BigNumber, : BigNumber) {
-    return await this.alexandria.reviews(, );
+  async proofs(: BigNumber, : BigNumber) {
+    return await this.alexandria.proofs(, );
   }
   
 
-  async submitReview(id: BigNumber, uri: string) {
-    return await this.alexandria.submitReview(id, uri);
+  async reviews(: BigNumber, : BigNumber, : BigNumber) {
+    return await this.alexandria.reviews(, , );
+  }
+  
+
+  async submitProof(hypothesesID: BigNumber, _url: string, proofResult: BigNumber) {
+    return await this.alexandria.submitProof(hypothesesID, _url, proofResult);
+  }
+  
+
+  async submitReview(hypothesesID: BigNumber, proofIndex: BigNumber, _url: string, reviewResult: BigNumber) {
+    return await this.alexandria.submitReview(hypothesesID, proofIndex, _url, reviewResult);
   }
   
 }
